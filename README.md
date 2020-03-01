@@ -16,4 +16,4 @@ The following operations can be performed.
 - Oracle Database
 
 ## Database Schema
-See [this link](/db-schema.sql).
+See [this link](/src/db-schema.sql).
