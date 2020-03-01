@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>IET Library Home</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link type="text/css" rel="stylesheet" href="css/CommonStyle.css"/>
+		<style>
+form span{
+	display:inline-block;
+	width:150px;
+}
+p + p{
+	margin-top:20px;
+}
+.button{
+	padding:15px 0 0 155px;
+}
+button{
+	width:100px;
+	height:30px;
+}
+		</style>
+		<script>
+			var user = "";
+			function getCookie(nameeq){
+				var ca = document.cookie.split(";");
+				nameeq = nameeq + "=";
+				var c = "";
+				for(i = 0; i < ca.length; ++i){
+					c = ca[i];
+					while(c.charAt(0) === ' ') c = c.substring(1, c.length);
+					if(c.indexOf(nameeq) ===  0) return c.substring(nameeq.length, c.length);
+				}
+				return "";
+			}
+			// myCookie now has cookie of is null
+			var a = getCookie("libuser");
+			if(a !== ""){
+				user = a;
+			}
+			else{
+				window.location = "index.html";
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="body_wrapper">
+			<header>
+				<h1>IET Library</h1>
+			</header>
+			
+			<nav>
+				<ul id="main_nav">
+					<li>
+						<script>if(user) document.write("Welcome, " + user);</script>
+					</li>
+					<li><a href="LibHomePage.html">Home</a></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</nav>
+			
+			<section class="container">
+				<div class="container_inner">
+					<!-- add content here-->
+					<h2 class="page_title">Issue Book</h2>
+					<br/>
+					<div id="form_wrapper">
+					<form id="book_issue" action="IssueBook" method="post" autocomplete="off">
+						<p><label>Mendatory fields are marked <span style="color:red">*</span></label></p>
+						<output id="error"></output>
+						<p>
+							<label for="student_id">
+								<span>Enter student ID</span>
+								<input type="text" id="student_id" name="s_id" required />
+								<label><span style="color:red">*</span></label>
+							</label>
+						</p>
+						<p>
+							<label for="book_id">
+								<span>Enter book ID</span>
+								<input type="text" id="book_id" name="b_id" required />
+								<label><span style="color:red">*</span></label>
+							</label>
+						</p>
+						
+						<input type="hidden" value="" name="user" id="lbr_id"/>
+						<script>document.getElementById("lbr_id").value = user;</script>
+						
+						<div class="button">
+							<button type="submit">Submit</button>
+						</div>
+					</form>
+				</div>
+				</div>
+			</section>
+			<footer>
+				<p>Project by:</p>
+				<ul>
+					<li>Jitendra Kumar</li>
+					<li>Mahesh Patel</li>
+					<li>Sandesh Yadav</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+</html>

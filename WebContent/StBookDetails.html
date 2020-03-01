@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>IET Library Student/Books Details</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link type="text/css" rel="stylesheet" href="css/CommonStyle.css"/>
+		<style>
+form span{
+	display:inline-block;
+}
+fieldset{
+	border:0;
+	padding-top:.75em;
+}
+legend{
+	position:static;
+}
+label + label{
+	padding-left:50px;
+}
+input[type=radio]{
+	padding:0;
+	width:20px;
+	border:0;
+}
+.id_input{
+	margin-top:1em;
+}
+.id_input span, fieldset > span{
+	display:inline-block;
+	width:150px;
+}
+.button{
+	padding:15px 0 0 155px;
+}
+button{
+	width:100px;
+	height:30px;
+}
+table{
+	border-spacing:0;
+	margin:0 auto;
+	border-bottom:1px solid #ccc;
+}
+tr{
+	border-top:1px solid #ccc;
+	border-right:1px solid #ccc;
+	display:block
+}
+td{
+	background:#f7f7f7;
+	padding:5px;
+	width:200px;
+	border-left:1px solid #ccc;
+}
+td + td{
+	border-right:0px solid #ccc;
+}
+		</style>
+		<script>
+			var user = "";
+			function getCookie(nameeq){
+				var ca = document.cookie.split(";");
+				nameeq = nameeq + "=";
+				var c = "";
+				for(i = 0; i < ca.length; ++i){
+					c = ca[i];
+					while(c.charAt(0) === ' ') c = c.substring(1, c.length);
+					if(c.indexOf(nameeq) ===  0) return c.substring(nameeq.length, c.length);
+				}
+				return "";
+			}
+			// myCookie now has cookie of is null
+			var a = getCookie("libuser");
+			if(a !== ""){
+				user = a;
+			}
+			else{
+				window.location = "index.html";
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="body_wrapper">
+			<header>
+				<h1>IET Library</h1>
+			</header>
+			
+			<nav>
+				<ul id="main_nav">
+					<li>
+						<script>if(user) document.write("Welcome, " + user);</script>
+					</li>
+					<li><a href="LibHomePage.html">Home</a></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</nav>
+			
+			<section class="container">
+				<div class="container_inner">
+					<!-- add content here-->
+					
+					<h2 class="page_title">Student/Book details</h2>
+					<br/><br/>
+					<div id="form_wrapper">
+					<form id="book_issue" action="StBookDt" method="post" autocomplete="off">
+						<output id="error">&nbsp;</output>
+						<fieldset>
+							<span>Details of</span>
+							<label for="student">
+								<input type="radio" id="student" name="d" value="st" checked=""/>
+								<span>Student</span>
+							</label>
+							<label for="book">
+								<input type="radio" id="book" name="d" value="bo"/>
+								<span>Book</span>
+							</label>
+						</fieldset>						
+						<p class="id_input">
+							<label for="id">
+								<span>Student/Book ID</span>
+								<input type="text" required="" name="id" id="id"/>
+							</label>
+						</p>
+						<div class="button">
+							<button type="submit">Submit</button>
+						</div>
+					</form>
+					</div>
+				</div>
+			</section>
+			<footer>
+				<p>Project by:</p>
+				<ul>
+					<li>Jitendra Kumar</li>
+					<li>Mahesh Patel</li>
+					<li>Sandesh Yadav</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+</html>

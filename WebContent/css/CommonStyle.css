@@ -1,0 +1,99 @@
+/* 
+    Created on : 14 Apr, 2015, 11:40:55 PM
+    Author     : Jitendra
+*/
+
+*{
+	padding:0;
+	margin:0;
+}
+html{
+	font-family: "Open Sans", sans-serif;
+	background:#f7f7f7;
+}
+body{
+	font-size:1em;
+}
+input,select,option{
+	font-family:inherit;
+}
+a, a:link, a:visited{
+	text-decoration:none;
+	color:green;
+}
+a:hover{
+	color:black;
+}
+header{
+	font-family:Cambria, serif;
+	padding:20px;
+	text-align:center;
+	background-color:darkcyan;
+	color:#f0f0f0;
+	background-image:-moz-linear-gradient(top, rgba(255,255,255,.15), rgba(0,0,0,.15));
+	background-image:-webkit-linear-gradient(top, rgba(255,255,255,.15), rgba(0,0,0,.15));
+	background-image:-ms-linear-gradient(top, rgba(255,255,255,.15), rgba(0,0,0,.15));
+	background-image:linear-gradient(top, rgba(255,255,255,.15), rgba(0,0,0,.15));
+}
+nav{
+	padding:10px;
+	background-color:#fed;
+	border-bottom:1px solid rgba(0,0,0,.1);
+}
+nav ul{
+	list-style:none;
+	text-align:right;
+	padding-right:30px;
+}
+nav ul li{
+	display:inline-block;
+	padding:0 10px;
+}
+nav li+li{
+	border-left:1px solid #fda;
+}
+.container{
+	width:80%;
+	margin:0 auto;
+	min-height:450px;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	padding:10px;
+}
+footer{
+	background:#f0f0f0;
+	padding:10px;
+	border-top:1px solid #d0d0d0;
+	text-align:center;
+}
+footer ul{
+	list-style:none;
+	font-size:.9em;
+	color:#555;
+	margin-top:5px;
+}
+footer ul li{
+	display:inline-block;
+}
+footer ul li + li{
+	margin-left:10px;
+}
+form input{
+	padding:5px;
+	width:200px;
+	border:1px solid #aaa;
+}
+form output{
+	padding-left:105px;
+	color:red;
+	font-size:.8em;
+	display:inline-block;
+}
+#error{
+	padding:0 0 5px 105px;
+	font-size:.9em;
+}
+#error:first-letter{
+	text-transform:capitalize;
+}

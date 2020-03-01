@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>IET Library Home</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link type="text/css" rel="stylesheet" href="css/CommonStyle.css"/>
+		<style>
+.home_options{
+	margin:20px 0 0 150px;
+}
+.home_options ul{
+	list-style: none;
+}
+.home_options ul li + li{
+	margin-top:15px;
+}
+.home_options li a,
+.home_options li a:link,
+.home_options li a:visited{
+	display:inline-block;
+	background-color:#f0e090;
+	color:#000;
+	width:230px;
+	padding:5px 10px;
+	border:1px solid #ca6;
+	color:#222;
+}
+.home_options li a:hover{
+	background-color:#f0e7b0;
+}
+		</style>
+		<script>
+			var user = "";
+			function getCookie(nameeq){
+					var ca = document.cookie.split(";");
+				nameeq = nameeq + "=";
+				var c = "";
+				for(i = 0; i < ca.length; ++i){
+					c = ca[i];
+					while(c.charAt(0) === ' ') c = c.substring(1, c.length);
+					if(c.indexOf(nameeq) ===  0) return c.substring(nameeq.length, c.length);
+				}
+				return "";
+			}
+			// myCookie now has cookie of is null
+			var a = getCookie("libuser");
+			if(a !== ""){
+				user = a;
+			}
+			else{
+				window.location = "index.html";
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="body_wrapper">
+			<header>
+				<h1>IET Library</h1>
+			</header>
+			
+			<nav>
+				<ul id="main_nav">
+					<li>
+						<script>if(user) document.write("Welcome, " + user);</script>
+					</li>
+					<li><a href="LibHomePage.html">Home</a></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</nav>
+			
+			<section class="container">
+				<div class="container_inner">
+					<!-- add content here-->
+					<div class="home_options">
+						<ul>
+							<li><a href="LibIssueBook.html">Issue Book</a></li>
+							<li><a href="LibReturnBook.html">Return Book</a></li>
+							<li><a href="LibAddBook.html">Add book to database</a></li>
+							<li><a href="LibCreateStudentAc.html">Create Student Account</a></li>
+							<li><a href="LibCreateLibrarianAc.html">Create Librarian Account</a></li>
+							<li><a href="StBookDetails.html">Student/Book details</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<footer>
+				<p>Project by:</p>
+				<ul>
+					<li>Jitendra Kumar</li>
+					<li>Mahesh Patel</li>
+					<li>Sandesh Yadav</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+</html>

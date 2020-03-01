@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>IET Library Sign In</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="css/CommonStyle.css"/>
+		<style>
+form{
+	width:400px;
+	margin:30px auto 0;
+	background:#f0f0f0;
+	border:1px solid #ddd;
+	padding:20px;
+}
+form h2{
+	font-size:1.1em;
+	text-align:center;
+	margin-bottom:20px;
+	color:#222;
+}
+.label_text{
+	display:inline-block;
+	width:100px;
+}
+p + p{
+	margin-top:1em;
+}
+.button{
+	padding-left:105px;
+	margin-top:10px;
+}
+button{
+	width:100px;
+	height:30px;
+}
+		</style>
+		<!-- this script writes a cookie in browser which logs out the user -->
+		<script>
+			document.cookie = "libuser=; expires=; path=/";
+		</script>
+	</head>
+	<body>
+		<div class="body_wrapper">
+			<header>
+				<h1>IET Library</h1>
+			</header>
+			
+			<section class="container">
+				<div class="container_inner">
+					<!-- add content here-->
+					<form action="Signin" autocomplete="off" method="post">
+						<h2>Sign into IET Library</h2>
+						<p>
+							<label for="username">
+								<span class="label_text">Username</span>
+								<input type="text" id="username" value="" name="username" required />
+							</label>
+						</p>
+						
+						<p>
+							<label for="password">
+								<span class="label_text">Password</span>
+								<input type="password" id="password" value="" name="password" required />
+							</label>
+						</p>
+						<output id="error"></output>
+						<div class="button">
+							<button type="submit">Sign in</button>
+						</div>
+					</form>
+				</div>
+			</section>
+			
+			<footer>
+				<p>Project by:</p>
+				<ul>
+					<li>Jitendra Kumar</li>
+					<li>Mahesh Patel</li>
+					<li>Sandesh Yadav</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+</html>

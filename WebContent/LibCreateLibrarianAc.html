@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>IET Library Home</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link type="text/css" rel="stylesheet" href="css/CommonStyle.css"/>
+		<style>
+			label{
+				position:relative;
+			}
+			.form_error{
+				position:absolute;
+				display:inline-block;
+				width:400px;
+				left:100%;
+				color:red;
+				font-size:.9em;
+				padding:0 0 0 10px;
+			}
+			label span{
+				display:inline-block;
+				width:180px;
+			}
+			p + p{
+				margin-top:1em;
+			}
+			.button{
+				padding:15px 0 0 185px;
+			}
+			button{
+				width:100px;
+				height:30px;
+			}
+		</style>
+		<script>
+			var user = "";
+			var un = "";
+			function getCookie(nameeq){
+				var ca = document.cookie.split(";");
+				nameeq = nameeq + "=";
+				var c = "";
+				for(i = 0; i < ca.length; ++i){
+					c = ca[i];
+					while(c.charAt(0) === ' ') c = c.substring(1, c.length);
+					if(c.indexOf(nameeq) ===  0) return c.substring(nameeq.length, c.length);
+				}
+				return "";
+			}
+			// myCookie now has cookie of is null
+			var a = getCookie("libuser");
+			if(a !== ""){
+				user = a;
+			}
+			else{
+				window.location = "index.html";
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+		<div class="body_wrapper">
+			<header>
+				<h1>IET Library</h1>
+			</header>
+			
+			<nav>
+				<ul id="main_nav">
+					<li>
+						<script>if(user) document.write("Welcome, " + user);</script>
+					</li>
+					<li><a href="LibHomePage.html">Home</a></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</nav>
+			
+			<section class="container">
+				<div class="container_inner">
+					<!-- add content here-->
+					<h2>Create Librarian Account</h2>
+					<br/><br/>
+					<div id="form_wrapper">
+					<form autocomplete="off" id="create_lbr" method="post" action="CreateLbr">
+						<output id="error"></output>
+						<p>
+							<label for="new_username">
+								<span>Create a username</span>
+								<input type="text" id="new_username" name="new_username" required placeholder="Max 6 characters"/>
+								<output id="un_error" class="form_error"></output>
+							</label>
+						</p>
+						<p>
+							<label for="pw">
+								<span>Enter a password</span>
+								<input type="password" id="pw" name="pw" required placeholder="Max 8 characters"/>
+								<output id="pw_error" class="form_error"></output>
+							</label>
+						</p>
+						<p>
+							<label for="pw1">
+								<span>Re-enter password</span>
+								<input type="password" id="pw1" required />
+							</label>
+						</p>
+						
+						<input type="hidden" value="" name="user" id="lbr_id"/>
+						<script>
+							document.getElementById("lbr_id").value = user;
+						</script>
+						
+						<div class="button">
+							<button type="button" onclick="validateForm()">Submit</button>
+						</div>
+					</form>
+<script>
+	function validateForm(){try{
+		un = document.getElementById("new_username").value;
+		var pw = document.getElementById("pw").value;
+		var pw1 = document.getElementById("pw1").value;
+		var une = document.getElementById("un_error");
+		var pwe = document.getElementById("pw_error");
+		var un_valid = false;
+		var pw_valid = false;
+
+		if(un.length > 6){
+			une.innerHTML = "username can not be more than 6 characters";
+		}else{ un_valid = true; une.innerHTML = "";}
+
+		if(pw.length > 8){
+			pwe.innerHTML = "password can not be more than 8 characters";
+		}else if(pw !== pw1){
+			pwe.innerHTML = "passwords do not match";
+		}else{ pw_valid = true; pwe.innerHTML = "";}
+
+		if(un_valid && pw_valid){
+			document.getElementById("create_lbr").submit();
+		}
+	}catch(err){ alert(err);}
+}
+</script>
+					</div>
+				</div>
+			</section>
+			<footer>
+				<p>Project by:</p>
+				<ul>
+					<li>Jitendra Kumar</li>
+					<li>Mahesh Patel</li>
+					<li>Sandesh Yadav</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+</html>

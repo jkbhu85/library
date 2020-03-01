@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>IET Library Home</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link type="text/css" rel="stylesheet" href="css/CommonStyle.css"/>
+		<style>
+p+p{
+	margin-top:1em;
+}
+select{
+	width:210px;
+	padding:5px;
+	border:1px solid #999;
+}
+input:focus, select:focus{
+	border:1px solid #555;
+}
+label span{
+	width:170px;
+	display:inline-block;
+}
+.button{
+	padding:15px 0 0 175px;
+}
+button{
+	width:100px;
+	height:30px;
+}
+		</style>
+		<script>
+			var user = "";
+			function getCookie(nameeq){
+				var ca = document.cookie.split(";");
+				nameeq = nameeq + "=";
+				var c = "";
+				for(i = 0; i < ca.length; ++i){
+					c = ca[i];
+					while(c.charAt(0) === ' ') c = c.substring(1, c.length);
+					if(c.indexOf(nameeq) ===  0) return c.substring(nameeq.length, c.length);
+				}
+				return "";
+			}
+			// myCookie now has cookie of is null
+			var a = getCookie("libuser");
+			if(a !== ""){
+				user = a;
+			}
+			else{
+				window.location = "index.html";
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="body_wrapper">
+			<header>
+				<h1>IET Library</h1>
+			</header>
+			
+			<nav>
+				<ul id="main_nav">
+					<li>
+						<script>if(user) document.write("Welcome, " + user);</script>
+					</li>
+					<li><a href="LibHomePage.html">Home</a></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</nav>
+			
+			<section class="container">
+				<div class="container_inner">
+					<!-- add content here-->
+					<h2>Create student account</h2>
+					<br/><br/>
+					
+					<div id="form_wrapper">
+						<form action="CreateStuAc" method="post" autocomplete="on" id="stu_form">
+						<output id="error"></output>
+						<p>	
+							<label for="name">
+								<span>Student name</span>
+								<input type="text" id="name" name="name" required="" maxlength="50"/>
+								<output class="form_error" id="namee"></output>
+							</label>
+						</p>
+						<p>
+							<label for="gender">
+								<span>Gender</span>
+								<select id="gender" name="gender">
+									<option value="m">Male</option>
+									<option value="f">Female</option>
+								</select>
+							</label>
+						</p>
+						<p>
+							<label for="branch">
+								<span class="form_error">Faculty/Department</span>
+								<input type="text" id="branch" name="branch" required="" maxlength="50"/>
+								<output class="form_error" id="branche"></output>
+							</label>
+						</p>
+						<p>
+							<label for="quota">
+								<span>Book quota</span>
+								<input type="text" maxlength="2" id="quota" name="quota" required=""/>
+								<output class="form_error" id="quotae"></output>
+							</label>
+						</p>
+						<div class="button">
+							<button type="submit">Submit</button>
+						</div>
+					</form>
+					</div>
+				</div>
+			</section>
+			<footer>
+				<p>Project by:</p>
+				<ul>
+					<li>Jitendra Kumar</li>
+					<li>Mahesh Patel</li>
+					<li>Sandesh Yadav</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+</html>

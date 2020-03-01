@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>IET Library Home</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link type="text/css" rel="stylesheet" href="css/CommonStyle.css"/>
+		<style>
+			label span{
+				display:inline-block;
+				width:160px;
+			}
+			p + p{
+				margin-top:.5em;
+			}
+			.button{
+				padding:15px 0 0 165px;
+			}
+			button{
+				width:100px;
+				height:30px;
+			}
+			.container{
+				min-height:430px;
+			}
+		</style>
+		<script>
+			var user = "";
+			function getCookie(nameeq){
+				var ca = document.cookie.split(";");
+				nameeq = nameeq + "=";
+				var c = "";
+				for(i = 0; i < ca.length; ++i){
+					c = ca[i];
+					while(c.charAt(0) === ' ') c = c.substring(1, c.length);
+					if(c.indexOf(nameeq) ===  0) return c.substring(nameeq.length, c.length);
+				}
+				return "";
+			}
+			// myCookie now has cookie of is null
+			var a = getCookie("libuser");
+			if(a !== ""){
+				user = a;
+			}
+			else{
+				window.location = "index.html";
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="body_wrapper">
+			<header>
+				<h1>IET Library</h1>
+			</header>
+			
+			<nav>
+				<ul id="main_nav">
+					<li>
+						<script>if(user) document.write("Welcome, " + user);</script>
+					</li>
+					<li><a href="LibHomePage.html">Home</a></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</nav>
+			
+			<section class="container">
+				<div class="container_inner">
+					<!-- add content here-->
+					<h2>Add book to database</h2>
+					<br/><br/>
+					
+					<div id="form_wrapper">
+					<form autocomplete="on" action="AddBook" method="post">
+						<p><label>Mendatory fields are marked <span style="color:red">*</span></label></p>
+						<output id="error"></output>
+						<p>
+							<label for="name">
+								<span>Name of book</span>
+								<input type="text" id="name" name="title" required="" maxlength="80" placeholder="Maximum 80 characters"/>
+								<label><span style="color:red">*</span></label>
+								<output class="form_error"></output>
+							</label>
+						</p>
+						<p>
+							<label for="author">
+								<span>Author(s)</span>
+								<input type="text" id="author" name="author" required="" maxlength="80" placeholder="Maximum 80 characters"/>
+								<label><span style="color:red">*</span></label>
+								<output class="form_error"></output>
+							</label>
+						</p>
+						<p>
+							<label for="year">
+								<span>Year of publish</span>
+								<input type="text" id="year" name="year" required="" maxlength="4" />
+								<label><span style="color:red">*</span></label>
+								<output class="form_error"></output>
+							</label>
+						</p>
+						<p>
+							<label for="publisher">
+								<span>Publisher</span>
+								<input type="text" id="publisher" name="publisher" maxlength="100" placeholder="Maximum 100 characters"/>
+								<output class="form_error"></output>
+							</label>
+						</p>
+						<p>
+							<label for="isbn">
+								<span>ISBN of book</span>
+								<input type="text" id="isbn" name="isbn" maxlength="30"/>
+								<output class="form_error"></output>
+							</label>
+						</p>
+						<input type="hidden" value="" id="user" name="user"/>
+						<script>document.getElementById("user").value = user;</script>
+						<div class="button">
+							<button type="submit">Submit</button>
+						</div>
+					</form>
+					</div>
+				</div>
+			</section>
+			<footer>
+				<p>Project by:</p>
+				<ul>
+					<li>Jitendra Kumar</li>
+					<li>Mahesh Patel</li>
+					<li>Sandesh Yadav</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+</html>
